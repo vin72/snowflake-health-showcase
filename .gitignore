@@ -1,0 +1,5 @@
+
+# ---- project extras ----
+*.env          # never commit real credential files
+*.sqlplan      # Snowflake query plans are huge + noisy
+.DS_Store      # macOS Finder cruft
