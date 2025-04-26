@@ -4,3 +4,4 @@ cd snowflake-health-showcase
 cp .env.template.env
 python snowflake_connection.py
 ```
+# dummy trigger
