@@ -1,9 +1,17 @@
+# ---------------------------------------------------------------------------
+#  PYPROJECT.TOML  ·  Price-Transparency Query Engine
+#  Compatible with Poetry ≥1.5 (PEP-621 metadata)
+# ---------------------------------------------------------------------------
+
 [project]
 name = "price-transparency-engine"
 version = "0.1.0"
 description = "Price-Transparency Query Engine"
-authors = [{ name = "vin72", email = "49925973+vin72@users.noreply.github.com" }]
 readme = "README.md"
+authors = [
+  { name = "vin72", email = "49925973+vin72@users.noreply.github.com" }
+]
+
 requires-python = ">=3.11,<4.0"
 
 dependencies = [
@@ -14,13 +22,26 @@ dependencies = [
   "langchain>=0.3.24,<0.4.0",
   "streamlit>=1.44.1,<2.0.0",
   "python-dotenv>=1.1.0,<2.0.0",
-  "pyarrow (<19.0.0)"
+  "pyarrow>=18.0.0,<19.0.0"        # ← pinned for Snowflake pandas helpers
 ]
 
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+[project.scripts]
+snowflake-shell = "src.db:cli"      # →  poetry run snowflake-shell
+
+# ---------------------------------------------------------------------------
+#  Poetry-specific configuration
+# ---------------------------------------------------------------------------
+
+[tool.poetry]
+packages = [{ include = "src" }]    # tell Poetry to install code in src/
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.2.0"
 
+# ---------------------------------------------------------------------------
+#  Build backend (standard for Poetry projects)
+# ---------------------------------------------------------------------------
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
