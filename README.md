@@ -1,17 +1,12 @@
-# Snowflake Health Showcase 🚑❄️
+# Price-Transparency Query Engine
 
-[![CI](https://github.com/vin72/snowflake-health-showcase/actions/workflows/ci.yml/badge.svg)](https://github.com/vin72/snowflake-health-showcase/actions/workflows/ci.yml)
+Opinionated, fast-to-demo toolkit for answering **“What does this service cost?”**
 
+* **Stack** : Python 3.12 · Snowflake · FastAPI · LangChain · Streamlit  
+* **Data**  : CMS Hospital Price Transparency CSVs + Synthea synthetic patients  
 
-## 🚀 Quick Start
-
-Follow these steps to get up and running fast:
-
-### 1. Clone the repository
+## Quick-start
 ```bash
-git clone https://github.com/,yout-handle>/snowflake-health-showcase/git
-cd snowflake-health-showcase
-cp .env.template.env
-python snowflake_connection.py
+make dev-up   # create venv + install deps
+make api      # run FastAPI on http://127.0.0.1:8000
 ```
-# dummy trigger

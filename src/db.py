@@ -15,4 +15,12 @@ def get_conn():
         schema    = os.getenv("SNOWFLAKE_SCHEMA"),
     )
 
-py
+
+# --- keep everything above intact ----------------------------------
+
+def cli() -> None:
+    """Poetry script entry-point: prints the current Snowflake version."""
+    cur = get_conn().cursor()
+    print("Snowflake version →", cur.execute("select current_version()").fetchone()[0])
+    cur.close()
+
